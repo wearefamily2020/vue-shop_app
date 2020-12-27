@@ -2,9 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './lib/mui/dist/css/mui.css'
+import './lib/mui/dist/css/icons-extra.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import store from './store'
+
 
 
 Vue.use(MintUI)

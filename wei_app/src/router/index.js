@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
-import Sort from '@/views/Sort.vue'
-import Cart from '@/views/Cart.vue'
-import My from '@/views/My.vue'
+import Home from '@/views/Home'
+import Sort from '@/views/Sort'
+import Cart from '@/views/Cart'
+import My from '@/views/My'
 
 
 Vue.use(VueRouter)
@@ -11,7 +11,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/home',
+    meta: { title: '首页' }
   },
   {
     path: '/home',
@@ -32,18 +33,20 @@ const routes = [
     component: My,
     meta: { title: '我的' }
   },
+
 ]
 
 
 const router = new VueRouter({
   mode: 'history',
   // base: process.env.BASE_URL,
-  routes
+  routes,
+  linkActiveClass: 'mui-active'
 })
 
-  router.beforeEach((to, from, next) => {
-    if (to.meta.title) document.title = to.meta.title
-    next()
-  })
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) document.title = to.meta.title
+  next()
+})
 
 export default router
