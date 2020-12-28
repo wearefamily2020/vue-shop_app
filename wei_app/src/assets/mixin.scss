@@ -1,4 +1,0 @@
-// 对样式的封装 1px=37.5rem
-@function w($ps){
-    @return ($px / 375) * 100vw;
-}

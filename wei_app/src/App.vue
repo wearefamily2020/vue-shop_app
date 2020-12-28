@@ -45,19 +45,10 @@ export default {
 </script>
 <style lang="scss">
 // @import url("./style/base2.css");
-@media screen and (min-width: 320px) {
-  html {
-    font-size: 21.33px;
-  }
-}
-@media screen and (min-width: 750px) {
-  html {
-    font-size: 50px;
-  }
-}
+
 #app {
-  width: w(375);
   .container {
+    width: 375px;
     position: absolute;
     top: 40px;
     // height: 100vh;
