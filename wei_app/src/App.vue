@@ -44,8 +44,6 @@ export default {
 };
 </script>
 <style lang="scss">
-// @import url("./style/base2.css");
-
 #app {
   .container {
     width: vw(750);
