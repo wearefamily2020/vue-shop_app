@@ -8,6 +8,4 @@ export default {};
 </script>
 
 <style scoped lang='scss'>
-.sort {
-}
 </style>

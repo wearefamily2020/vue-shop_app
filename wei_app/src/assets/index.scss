@@ -1,7 +1,8 @@
 // 对样式的封装 1px=37.5rem
-@function w($ps){
-    @return ($px / 375) * 100vw;
-}
+$vw_base:750;
+@function vw($px){
+    @return ($px / $vw_base) * 100vw;
+};
 
 
 /*
@@ -16,16 +17,16 @@
 3、于是：写入CSS的尺寸 = UI图标注的尺寸/100px*1rem
 */
 // 计算rem的基准字体
-$rem-base-font-size: 100px;
-// UI设计图的分辨率宽度
-$UI-width: 750px;
-// 需要适配的屏幕宽度
-$device-widths: 240px, 320px, 360px, 375px, 384px, 411px, 414px, 424px, 480px, 540px, 640px, 720px, 750px, 768px, 800px, 980px, 1024px, 1080px, 1152px, 1366px, 1440px, 2160px;
- //根据不同设备的屏幕宽度，定义<html>的基准font-size
-@each $current-width in $device-widths {
-  @media (min-width: $current-width) {
-    html {
-      font-size: $current-width * $rem-base-font-size/$UI-width;
-    }
-  }
-}
+// $rem-base-font-size: 100px;
+// // UI设计图的分辨率宽度
+// $UI-width: 750px;
+// // 需要适配的屏幕宽度
+// $device-widths: 240px, 320px, 360px, 375px, 384px, 411px, 414px, 424px, 480px, 540px, 640px, 720px, 750px, 768px, 800px, 980px, 1024px, 1080px, 1152px, 1366px, 1440px, 2160px;
+//  //根据不同设备的屏幕宽度，定义<html>的基准font-size
+// @each $current-width in $device-widths {
+//   @media (min-width: $current-width) {
+//     html {
+//       font-size: $current-width * $rem-base-font-size/$UI-width;
+//     }
+//   }
+// }

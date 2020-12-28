@@ -48,7 +48,7 @@ export default {
 
 #app {
   .container {
-    width: 375px;
+    width: vw(750);
     position: absolute;
     top: 40px;
     // height: 100vh;
