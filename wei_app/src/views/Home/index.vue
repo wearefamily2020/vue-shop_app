@@ -1,33 +1,85 @@
 <template>
   <div class="home">
-    <mt-swipe :auto="4000">
-      <mt-swipe-item>1</mt-swipe-item>
-      <mt-swipe-item>2</mt-swipe-item>
-      <mt-swipe-item>3</mt-swipe-item>
-    </mt-swipe>
+    <Swiper :imgList="imgList" />
+    <div class="mui-content">
+      <ul class="mui-table-view mui-grid-view mui-grid-9">
+        <li
+          class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"
+          v-for="item in girdImg"
+          :key="item.id"
+        >
+          <img :src="item.src" />
+          <div class="mui-media-body" :style="{marginTop:'12px'}">{{item.title}}</div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Swiper from "../../components/swiper/index";
+import homeApi from "@/api/homeApi.js";
+export default {
+  components: { Swiper },
+  data() {
+    return {
+      imgList: [],
+      girdImg: [
+        {
+          id: 1,
+          src: require("../../assets/img/news_icon.png"),
+          title: "新闻资讯"
+        },
+        {
+          id: 3,
+          src: require("../../assets/img/share_icon.png"),
+          title: "图片分享"
+        },
+        {
+          id: 4,
+          src: require("../../assets/img/goods_icon.png"),
+          title: "商品购买"
+        },
+        {
+          id: 5,
+          src: require("../../assets/img/msg_icon.png"),
+          title: "留言反馈"
+        },
+        {
+          id: 6,
+          src: require("../../assets/img/video_icon.png"),
+          title: "视频专区"
+        },
+        {
+          id: 7,
+          src: require("../../assets/img/contract_icon.png"),
+          title: "联系我们"
+        }
+      ]
+    };
+  },
+  methods: {
+    async getSwiperImg() {
+      this.$indicator.open({ text: "加载中" });
+      let res = await homeApi.getSwiper();
+      this.$indicator.close();
+      let jsonStr = res.slice(res.indexOf("{"));
+      let data = JSON.parse(jsonStr);
+      if (data.code === 1) {
+        this.imgList = data.data;
+      } else {
+        this.$toast("轮播图加载失败");
+      }
+    }
+  },
+  created() {
+    this.getSwiperImg();
+  }
+};
 </script>
 
 <style scoped lang='scss'>
 .home {
-  background: pink;
   width: 100%;
-}
-.mint-swipe {
-  height: 200px;
-  color: black;
-  .mint-swipe-items-wrap {
-    .mint-swipe-item {
-      text-align: center;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
 }
 </style>

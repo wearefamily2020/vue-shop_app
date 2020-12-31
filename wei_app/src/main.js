@@ -6,8 +6,8 @@ import './lib/mui/dist/css/icons-extra.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import store from './store'
-import './assets/base.css'
-import './assets/index.scss'
+import './assets/css/base.css'
+import './assets/css/index.scss'
 
 
 Vue.use(MintUI)
