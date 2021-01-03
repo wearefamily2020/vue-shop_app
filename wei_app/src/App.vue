@@ -18,6 +18,7 @@
 </template>
 <script>
 import tabbar from "./components/tabbar";
+import loginApi from "./api/loginApi";
 export default {
   data() {
     return {
@@ -30,10 +31,23 @@ export default {
   methods: {
     goBack() {
       this.$router.go(-1);
+    },
+    async checkLogin() {
+      // 获取用户是否已经登录
+      this.$indicator.open({
+        text: "加载中"
+      });
+      let res = await loginApi.checkLogin();
+      const { data, msg, code } = res;
+      if (code === 1) {
+        this.$store.commit("user/setUser", data);
+      }
+      this.$indicator.close();
     }
   },
   created() {
     this.showBack = this.$route.path !== "/home";
+    this.checkLogin();
   },
   watch: {
     // 监听路由

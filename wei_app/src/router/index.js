@@ -3,7 +3,10 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home'
 import Sort from '@/views/Sort'
 import Cart from '@/views/Cart'
-import My from '@/views/My'
+import User from '@/views/User'
+import Login from '@/views/Login'
+import Register from '@/views/Register'
+
 
 
 Vue.use(VueRouter)
@@ -29,13 +32,32 @@ const routes = [
     component: Cart,
     meta: { title: '购物车' }
   }, {
-    path: '/my',
-    component: My,
-    meta: { title: '我的' }
+    path: '/user',
+    component: User,
+    meta: { title: '我的' },
+    children: [
+      {
+        path: '/user/login',
+        component: Login,
+        meta: { title: '登录' }
+      },
+      {
+        path: '/user/register',
+        component: Register,
+        meta: { title: '注册' }
+      },
+    ]
   },
-
 ]
 
+/* 当前页面已经在跳转的路由中，会出现报红 避免到当前位置的冗余导航 */
+// 解决办法：
+//获取原型对象上的push函数
+const originalPush = VueRouter.prototype.push
+//修改原型对象中的push方法
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 const router = new VueRouter({
   mode: 'history',

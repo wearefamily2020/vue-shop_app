@@ -63,10 +63,8 @@ export default {
       this.$indicator.open({ text: "加载中" });
       let res = await homeApi.getSwiper();
       this.$indicator.close();
-      let jsonStr = res.slice(res.indexOf("{"));
-      let data = JSON.parse(jsonStr);
-      if (data.code === 1) {
-        this.imgList = data.data;
+      if (res.code === 1) {
+        this.imgList = res.data;
       } else {
         this.$toast("轮播图加载失败");
       }

@@ -14,7 +14,7 @@
       </span>
       <span class="mui-tab-label">购物车</span>
     </router-link>
-    <router-link class="mui-tab-item-lib" to="/my">
+    <router-link class="mui-tab-item-lib" to="/user">
       <span class="mui-icon mui-icon-gear" />
       <span class="mui-tab-label">我的</span>
     </router-link>
