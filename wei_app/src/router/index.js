@@ -6,6 +6,8 @@ import Cart from '@/views/Cart'
 import User from '@/views/User'
 import Login from '@/views/Login'
 import Register from '@/views/Register'
+import GoodsList from '@/views/GoodsList'
+import GoodsInfo from '@/views/GoodsInfo'
 
 
 
@@ -21,13 +23,19 @@ const routes = [
     path: '/home',
     component: Home,
     meta: { title: '首页' }
-  },
-  {
+  }, {
     path: '/sort',
     component: Sort,
     meta: { title: '分类' }
-  },
-  {
+  }, {
+    path: '/goodslist/:id',
+    component: GoodsList,
+    meta: { title: '商品列表' }
+  }, {
+    path: '/goodsinfo/:id',
+    component: GoodsInfo,
+    meta: { title: '商品信息' }
+  }, {
     path: '/cart',
     component: Cart,
     meta: { title: '购物车' }

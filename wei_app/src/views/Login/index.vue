@@ -57,7 +57,6 @@ export default {
         try {
           let res = await loginApi.login(this.loginForm);
           const { msg, data, code } = res;
-          console.log(res);
           if (code === 1) {
             // 登录成功
             this.$toast(msg);

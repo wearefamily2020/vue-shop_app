@@ -88,10 +88,10 @@ export default {
         let res = await registerApi.isRegister(this.regForm);
         if (res.code === 1) {
           this.$toast(res.msg);
+          this.$router.replace("/user/login");
         } else {
           this.$toast(res.msg);
         }
-        console.log(res);
       } catch (err) {
         console.log(err);
         this.$toast("注册失败");

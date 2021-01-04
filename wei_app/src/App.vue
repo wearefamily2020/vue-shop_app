@@ -63,7 +63,9 @@ export default {
     width: vw(750);
     position: absolute;
     top: 40px;
-    // height: 100vh;
+    left: 0;
+
+    height: 100%;
   }
   // .fade-enter {
   //   opacity: 0;
