@@ -61,21 +61,23 @@ export default {
 #app {
   .container {
     width: vw(750);
-    position: absolute;
-    top: 40px;
-    // height: 100vh;
+    // position: absolute;
+    // bottom: -40px;
+    // left: 0;
+    margin-top: 40px;
+    height: 100%;
+    .fade-enter {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    .fade-leave-to {
+      opacity: 0;
+      transform: translateX(-100%);
+      position: absolute;
+    }
+    .fade-enter-active .fade-leave-active {
+      transition: all 2s ease;
+    }
   }
-  // .fade-enter {
-  //   opacity: 0;
-  //   transform: translateX(100%);
-  // }
-  // .fade-leave-to {
-  //   opacity: 0;
-  //   transform: translateX(-100%);
-  //   position: absolute;
-  // }
-  // .fade-enter-active .fade-leave-active {
-  //   transition: all 2s ease;
-  // }
 }
 </style>

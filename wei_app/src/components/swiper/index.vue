@@ -1,5 +1,5 @@
 <template>
-  <mt-swipe :continuous="false">
+  <mt-swipe :continuous="false" :prevent="false">
     <mt-swipe-item v-for="(item) in imgList" :key="item.id">
       <img :src="item.img" />
     </mt-swipe-item>
@@ -11,9 +11,7 @@ export default {
   props: {
     imgList: { type: Array, default: () => [] }
   },
-  created() {
-    // console.log(this.$props.imgList, this.imgList);
-  }
+  created() {}
 };
 </script>
 

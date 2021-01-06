@@ -56,7 +56,7 @@ export default {
     ...mapGetters("user", ["isLogin"])
   },
   updated() {
-    // console.log("state", this.$store.state.user.username);
+    // console.log("state", this.$store.state.user.username); // 'state',this.username
     // console.log("getters", this.$store.getters["user/isLogin"]);
   },
   methods: {
@@ -73,7 +73,12 @@ export default {
     // 退出
     async logout() {
       let res = await loginApi.logout();
-      console.log(res);
+      if (!this.$store.state.user.username) {
+        this.$toast(res.msg);
+      } else {
+        this.$toast("退出成功");
+        this.$store.commit("user/logout");
+      }
     }
   },
   watch: {

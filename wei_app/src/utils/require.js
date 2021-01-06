@@ -18,9 +18,7 @@ request.interceptors.request.use(config => {
 })
 // 响应拦截器
 request.interceptors.response.use(response => {
-    let jsonStr = response.data.slice(response.data.indexOf("{"));
-    let data = JSON.parse(jsonStr);
-    return data;
+    return response.data
 }, error => {
     return Promise.reject(error);
 })
