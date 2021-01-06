@@ -138,7 +138,12 @@ export default {
 }
 .shopcar-container {
   background: #eee;
-  overflow: hidden;
+  overflow: auto;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 50px;
+  height: 487px;
   .goods-list {
     .mui-card-content-inner {
       align-items: center;
@@ -185,7 +190,7 @@ export default {
       }
     }
     .bottom {
-      position: absolute !important;
+      position: fixed;
       bottom: 50px;
       left: 0;
       width: 100%;
@@ -202,5 +207,9 @@ export default {
       font-size: 16px;
     }
   }
+}
+
+.shopcar-container::-webkit-scrollbar {
+  display: none;
 }
 </style>
