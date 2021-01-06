@@ -55,22 +55,25 @@ export default {
   },
   created() {
     this.getGoodsList();
-    window.onscroll = () => {
-      // scrollTop是滚动条滚动时，距离顶部的距离
-      var scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      // windowHeight是可视区的高度
-      var windowHeight =
-        document.documentElement.clientHeight || document.body.clientHeight;
-      // scrollHeight是滚动条的总高度
-      var scrollHeight =
-        document.documentElement.scrollHeight || document.body.scrollHeight;
-      // 滚动条到底部
-      if (scrollTop + windowHeight == scrollHeight) {
-        // 到了底部之后想做的操作,如到了底部之后加载
-        this.$toast({ message: "已经到达底部了", duration: 1000 });
-      }
-    };
+    // window.onscroll = () => {
+    //   // scrollTop是滚动条滚动时，距离顶部的距离
+    //   var scrollTop =
+    //     document.documentElement.scrollTop || document.body.scrollTop;
+    //   // windowHeight是可视区的高度
+    //   var windowHeight =
+    //     document.documentElement.clientHeight || document.body.clientHeight;
+    //   // scrollHeight是滚动条的总高度
+    //   var scrollHeight =
+    //     document.documentElement.scrollHeight || document.body.scrollHeight;
+    //   // 滚动条到底部
+    //   if (scrollTop + windowHeight == scrollHeight) {
+    //     // 到了底部之后想做的操作,如到了底部之后加载
+    //     this.$toast({ message: "已经到达底部了", duration: 1000 });
+    //   }
+    // };
+  },
+  mounted() {
+    // window.onscroll = null;
   }
 };
 </script>

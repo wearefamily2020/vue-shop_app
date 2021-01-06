@@ -8,7 +8,7 @@ export default {
         return require.get(url)
     },
     getGoodsInfoData(id) {
-        let url = baseURl + '/goodsinfo/' + id
+        let url = baseURl + '/goodsinfo?id=' + id
         return require.get(url)
     }
 }

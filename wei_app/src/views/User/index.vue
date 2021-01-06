@@ -56,7 +56,7 @@ export default {
     ...mapGetters("user", ["isLogin"])
   },
   updated() {
-    // console.log("state", this.$store.state.user.username);
+    // console.log("state", this.$store.state.user.username); // 'state',this.username
     // console.log("getters", this.$store.getters["user/isLogin"]);
   },
   methods: {
