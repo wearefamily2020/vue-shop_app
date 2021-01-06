@@ -208,4 +208,8 @@ export default {
     }
   }
 }
+
+.shopcar-container::-webkit-scrollbar {
+  display: none;
+}
 </style>
