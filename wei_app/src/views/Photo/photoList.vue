@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import mui from "../../lib/mui/dist/js/mui.min.js";
+// import mui from "../../lib/mui/dist/js/mui.min.js";
 import homeApi from "../../api/homeApi";
 export default {
   data() {
@@ -56,9 +56,9 @@ export default {
   // 当组件中的dom结构被渲染好，并放入页面中后执行
   mounted() {
     // 初始化scroll滑动控件
-    mui(".mui-scroll-wrapper").scroll({
-      deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
-    });
+    // mui(".mui-scroll-wrapper").scroll({
+    //   deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+    // });
   },
   methods: {
     // 获取图片的分类

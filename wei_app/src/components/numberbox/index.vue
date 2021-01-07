@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="mui-numbox" data-numbox-min="1" :data-numbox-max="max" :style="myStyle">
+    <div
+      class="mui-numbox"
+      data-numbox-min="1"
+      :data-numbox-max="max"
+      :style="myStyle"
+    >
       <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
       <input
         class="mui-input-numbox"
@@ -19,7 +24,7 @@ import mui from "../../lib/mui/dist/js/mui.js";
 export default {
   data() {
     return {
-      myStyle: {}
+      myStyle: {},
     };
   },
   mounted() {
@@ -32,18 +37,26 @@ export default {
     countChanged() {
       var count = parseInt(this.$refs.num.value);
       this.$emit("count", { id: this.goodsid, count: count });
-    }
+      return
+    },
   },
   props: ["initcount", "max", "goodsid", "size"],
   watch: {
     max(newVal) {
-      mui(".mui-numbox")
-        .numbox()
-        .setOption("max", newVal);
-    }
-  }
+      mui(".mui-numbox").numbox().setOption("max", newVal);
+    },
+  },
 };
 </script>
 
-<style scoped lang=''>
+<style scoped lang='scss'>
+.mui-numbox {
+  padding: 0 30px;
+&.mui-input-numbox {
+  margin: 0 -7px;
+}
+& [class*=btn-numbox]{
+  width: 30px;
+}
+}
 </style>
