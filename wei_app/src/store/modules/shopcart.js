@@ -5,7 +5,7 @@ const shopcart = {
         car: getItem('car'),
         // 当前要购买的商品：buy: [{ id: '', count: '' }]
         // 当在购物车里点“去结算”时，就把购物车车中已经选中的商品放进去
-        buy: [{ id: 97, count: 1 }], // getItem('buy')
+        buy: getItem('buy')
 
     },
     mutations: {
@@ -51,7 +51,23 @@ const shopcart = {
                 }
             })
             setItem('car', state.car)
+        },
+        // 去结算
+        setBuy(state, goods) {
+            state.buy = []
+            if (goods) {
+                state.buy.push(goods)
+            } else {
+                state.car.some(item => {
+                    if (item.selected) {
+                        state.buy.push(item)
+                    }
+                })
+            }
+            setItem('buy', state.buy)
+
         }
+
 
     },
     getters: {

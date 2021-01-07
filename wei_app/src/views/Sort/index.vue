@@ -113,7 +113,6 @@ export default {
       });
       let bottom = this.$refs.itemList.getElementsByClassName("cate-bottom")[0];
       bottom.style.height = this.$refs.itemList.clientHeight / 1.2 + "px";
-      // console.log(bottom);
       this.rightLiTops = itemArray;
     }
   },

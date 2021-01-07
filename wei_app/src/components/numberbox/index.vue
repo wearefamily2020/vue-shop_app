@@ -25,7 +25,7 @@ export default {
   mounted() {
     mui(".mui-numbox").numbox();
     if (this.$props.size === "min") {
-      this.myStyle = { height: "25px", margin: "0 6px" };
+      this.myStyle = { height: "25px", margin: "0 6px", width: "100px" };
     }
   },
   methods: {

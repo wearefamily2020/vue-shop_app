@@ -17,14 +17,14 @@
       </div>
       <ul class="mui-table-view mui-table-view-chevron">
         <li class="mui-table-view-cell mui-media">
-          <div class="mui-navigate-right">
+          <router-link :to="{ name: 'order_list' }" class="mui-navigate-right">
             <!-- <img class="mui-media-object mui-pull-left" src="../../assets/img/avatar1.jpg" /> -->
             <div class="mui-media-body">我的订单</div>
-          </div>
+          </router-link>
         </li>
         <li class="mui-table-view-cell mui-media">
-          <div class="mui-navigate-right">
-            <!-- <img class="mui-media-object mui-pull-left" src="../assets/images/avatar1.jpg" /> -->
+          <div class="mui-navigate-right" @click="goAddress">
+            <!-- <img class="mui-media-object mui-pull-left" /> -->
             <div class="mui-media-body">收货地址</div>
           </div>
         </li>
@@ -60,6 +60,10 @@ export default {
     // console.log("getters", this.$store.getters["user/isLogin"]);
   },
   methods: {
+    // 跳转收获地址
+    goAddress() {
+      this.$router.push({ path: "/user/address" });
+    },
     // 跳转登录
     toLogin() {
       this.$router.push({ path: "/user/login" });

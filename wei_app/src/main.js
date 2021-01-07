@@ -8,8 +8,8 @@ import 'mint-ui/lib/style.css'
 import store from './store'
 import './assets/css/base.css'
 import './assets/css/index.scss'
-
-
+import VuePreview from 'vue-preview';
+Vue.use(VuePreview);
 Vue.use(MintUI)
 
 new Vue({
