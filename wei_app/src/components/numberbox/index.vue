@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import mui from "../../lib/mui/dist/js/mui.js";
 export default {
   data() {
     return {
@@ -28,7 +27,7 @@ export default {
     };
   },
   mounted() {
-    mui(".mui-numbox").numbox();
+    this.$mui(".mui-numbox").numbox();
     if (this.$props.size === "min") {
       this.myStyle = { height: "25px", margin: "0 6px", width: "100px" };
     }

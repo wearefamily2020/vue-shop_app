@@ -9,9 +9,11 @@ import store from './store'
 import './assets/css/base.css'
 import './assets/css/index.scss'
 import VuePreview from 'vue-preview';
+import mui from './lib/mui/dist/js/mui'
 Vue.use(VuePreview);
 Vue.use(MintUI)
-
+Vue.prototype.$mui = mui;　　
+console.log(Vue.prototype);
 new Vue({
   router,
   store,
