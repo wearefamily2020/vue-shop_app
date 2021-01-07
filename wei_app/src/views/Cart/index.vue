@@ -79,11 +79,8 @@ export default {
     // 计算总价
     getSelectedAmount() {
       var goods = this.getSelectedGoods;
-      console.log(goods);
-
       var amount = 0;
       this.goodslist.forEach(item => {
-        console.log(goods, goods[item.id]);
         if (goods[item.id]) {
           amount += item.price * goods[item.id].count;
         }
@@ -106,24 +103,22 @@ export default {
       this.$store.commit("shopcart/updateGoodsInfo", goodsinfo);
     },
     async getCartDataList() {
-      // let arrID = [];
-      // 获取每个商品id，根据id发送请求获取数据渲染页面
-      // this.car.forEach(item => arrID.push(item.id));
-      let cartList = [];
-      let src = "http://tpadmin.test/static/uploads/";
-      // let res = await cartApi.getCartListData(arrID);
-      let res = JSON.parse(localStorage.getItem("car"));
-      res.forEach(item => cartList.push(item.goodsinfo));
-      cartList.forEach(item => {
-        if (item.image) item.image = src + item.image;
-        else item.image = require("../../assets/img/avatar3.jpg");
-      });
-      this.goodslist = cartList;
-      this.goodslist.forEach(item => {
-        if (item.num == 0) {
-          this.selectedChange(item.id, false);
-        }
-      });
+      var idArr = [];
+      this.car.forEach(item => idArr.push(item.id));
+      if (idArr.length <= 0) {
+        return;
+      }
+      var params = { ids: idArr };
+      let res = await cartApi.getCartListData(params);
+      const { code, data, msg } = res;
+      if (code === 1) {
+        this.goodslist = data;
+        this.goodslist.forEach(item => {
+          if (item.num == 0) {
+            this.selectedChange(item.id, false);
+          }
+        });
+      }
     }
   },
   created() {
