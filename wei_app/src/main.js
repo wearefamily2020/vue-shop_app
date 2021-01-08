@@ -12,8 +12,7 @@ import VuePreview from 'vue-preview';
 import mui from './lib/mui/dist/js/mui'
 Vue.use(VuePreview);
 Vue.use(MintUI)
-Vue.prototype.$mui = mui;　　
-console.log(Vue.prototype);
+Vue.prototype.$mui = mui;
 new Vue({
   router,
   store,

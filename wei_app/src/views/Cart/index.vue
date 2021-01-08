@@ -48,7 +48,7 @@
                 <span class="red">¥{{ getSelectedAmount }}</span>
               </p>
             </div>
-            <mt-button type="primary">去结算</mt-button>
+            <mt-button type="primary" @click="createOrder">去结算</mt-button>
           </div>
         </div>
       </div>
@@ -89,6 +89,14 @@ export default {
     }
   },
   methods: {
+    createOrder() {
+      if (this.goodslist.length === 0) {
+        this.$toast("您的购物车为空");
+        return;
+      }
+      this.$store.commit("shopcart/setBuy");
+      this.$router.push({ name: "order_create" });
+    },
     // 删除商品
     delGoods(id, index) {
       this.goodslist.splice(index, 1);

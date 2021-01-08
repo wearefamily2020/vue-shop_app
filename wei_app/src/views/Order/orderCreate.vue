@@ -102,7 +102,6 @@ export default {
       };
       this.$indicator.open({ text: "创建订单中" });
       let res = await orderApi.getOrderData(form);
-      console.log(res);
       const { data, msg, code } = res;
       this.$indicator.close();
       if (code === 0) {
