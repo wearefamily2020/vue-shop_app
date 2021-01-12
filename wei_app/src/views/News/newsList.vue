@@ -28,7 +28,6 @@ export default {
   methods: {
     async getNewsList() {
       let res = await homeApi.getNewsList();
-      console.log(res);
       if (res.status === 0) {
         this.newslist = res.message;
       } else {

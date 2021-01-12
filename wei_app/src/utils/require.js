@@ -1,11 +1,13 @@
 import axios from 'axios'
 import auth from './auth'
 // 二次封装axios
+axios.defaults.timeout = 3000;
 let request = axios.create({
     baseURL: process.env.VUE_APP_SERVICE_URL,  // 基础路径
     timeout: 3000,   // 响应时间
     // headers:{},
 })
+
 
 // 请求拦截器
 request.interceptors.request.use(config => {

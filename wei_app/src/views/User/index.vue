@@ -15,7 +15,7 @@
           <span v-else>{{username}}</span>
         </div>
       </div>
-      <ul class="mui-table-view mui-table-view-chevron">
+      <ul class="mui-table-view mui-table-view-chevron" v-if="isLogin">
         <li class="mui-table-view-cell mui-media">
           <router-link :to="{ name: 'order_list' }" class="mui-navigate-right">
             <!-- <img class="mui-media-object mui-pull-left" src="../../assets/img/avatar1.jpg" /> -->
