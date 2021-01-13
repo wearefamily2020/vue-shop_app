@@ -27,20 +27,23 @@
         finished-text="没有更多了"
         @load="onLoad"
       >
-        <div class="list-item" v-for="item in list" :key="item.hashId">
-          <p style="text-indent:2em">{{item.content}}</p>
+        <div class="list-item" v-for="(item,index) in list" :key="index">
+          <p>{{index+1}}. {{item.content}}</p>
           <span>{{item.updatetime}}</span>
         </div>
       </van-list>
       <div v-else style="margin-top:20px">暂无数据</div>
     </div>
+    <totop />
   </div>
 </template>
 
 <script>
 import jockApi from "../api/jockApi";
 import { mapState } from "vuex";
+import totop from "../components/gotop";
 export default {
+  components: { totop },
   data() {
     return {
       swiperImg: [
@@ -70,7 +73,8 @@ export default {
       ],
       list: [],
       loading: false,
-      finished: false
+      finished: false,
+      isTop: false
     };
   },
   computed: {
@@ -96,15 +100,15 @@ export default {
     },
     onLoad() {
       this.loading = false;
-      if (this.list.length == 0) this.finished = true;
+      if (this.list.length >= 10) this.finished = true;
     },
     async getData() {
       let res = await jockApi.getTimeJockData();
       this.list = res.result.data;
-      console.log(this.list);
+      // console.log(this.list);
     }
   },
-  created() {
+  mounted() {
     this.getData();
   }
 };
@@ -113,8 +117,8 @@ export default {
 <style scoped lang="scss">
 .home {
   height: 570px;
-  padding-bottom: 40px;
-  overflow: auto;
+  // padding-bottom: 30px;
+  // overflow: auto;
   .van-swipe {
     height: 208px;
     border: 2px solid orange;
@@ -148,6 +152,19 @@ export default {
       border-bottom: 1px solid #ccc;
       line-height: 40px;
     }
+  }
+  .go-top {
+    position: fixed;
+    right: 10px;
+    bottom: 64px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: orange;
+    border-radius: 50%;
+    color: white;
+    font-size: 14px;
   }
 }
 </style>
