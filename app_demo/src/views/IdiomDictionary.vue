@@ -7,17 +7,23 @@
       input-align="center"
       placeholder="请输入您要搜索的成语"
     />
-    <div class="tag" v-show="searchData.length!==0">
+    <div class="tag" v-show="searchData.length !== 0">
       <h1 @click="clearHistory">清除历史</h1>
       <van-row gutter="10">
-        <van-col span="6" style="margin-top:10px" v-for="item in searchData" :key="item">
+        <van-col
+          span="6"
+          style="margin-top: 10px"
+          v-for="item in searchData"
+          :key="item"
+        >
           <van-tag
             @click="setInputVal(item)"
             round
             size="medium"
             color="#ff8c00"
             text-color="#fff"
-          >{{item}}</van-tag>
+            >{{ item }}</van-tag
+          >
         </van-col>
       </van-row>
     </div>
@@ -34,7 +40,7 @@ export default {
     return {
       value: "",
       searchData: JSON.parse(localStorage.getItem("searchData")) || [],
-      isModal: false
+      isModal: false,
     };
   },
   methods: {
@@ -67,8 +73,8 @@ export default {
     clearHistory() {
       this.searchData = [];
       localStorage.removeItem("searchData");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -90,6 +96,7 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.1);
+    margin-bottom: 70px;
     position: fixed;
     top: 0;
     left: 0;

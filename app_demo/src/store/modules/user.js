@@ -3,7 +3,7 @@ const index = storage.getItem("user_index") || 0
 const user = {
     namespaced: true,
     state: {
-        username: storage.getItem("user-demo")[index].username || '',
+        username: storage.getItem("user-demo")[index] ? storage.getItem("user-demo")[index].username : '',
 
     },
     mutations: {

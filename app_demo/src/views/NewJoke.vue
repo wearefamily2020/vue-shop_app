@@ -2,19 +2,19 @@
   <div class="joke">
     <div>
       <van-list
-        v-if="list.length!==0"
+        v-if="list.length !== 0"
         v-model="loading"
         :finished="finished"
         finished-text="没有更多了"
         @load="onLoad"
       >
-        <div class="list-item" v-for="(item,index) in list" :key="item.hashId">
-          <p>{{index+1}}. {{item.content}}</p>
-          <span>{{item.updatetime}}</span>
+        <div class="list-item" v-for="(item, index) in list" :key="item.hashId">
+          <p>{{ index + 1 }}. {{ item.content }}</p>
+          <span>{{ item.updatetime }}</span>
         </div>
         <div class="more" v-show="!finished" @click="onloadMore">加载更多</div>
       </van-list>
-      <div v-else style="margin-top:20px">暂无数据</div>
+      <div v-else style="margin-top: 20px">暂无数据</div>
     </div>
     <div class="modal" v-show="isModal">
       <van-loading color="orange" size="40" vertical>加载中...</van-loading>
@@ -35,7 +35,7 @@ export default {
       finished: false,
       page: 1,
       pageSize: 10,
-      isModal: false
+      isModal: false,
     };
   },
   methods: {
@@ -58,11 +58,11 @@ export default {
         this.$toast("请求失败");
       }
       this.isModal = false;
-    }
+    },
   },
   mounted() {
     this.getData();
-  }
+  },
 };
 </script>
 
@@ -87,6 +87,7 @@ export default {
     background: #fff;
     line-height: 30px;
     text-align: center;
+    margin-bottom: 70px;
   }
   .modal {
     width: 100%;
