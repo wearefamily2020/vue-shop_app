@@ -8,8 +8,8 @@
         finished-text="没有更多了"
         @load="onLoad"
       >
-        <div class="list-item" v-for="item in list" :key="item.hashId">
-          <p>{{item.content}}</p>
+        <div class="list-item" v-for="(item,index) in list" :key="item.hashId">
+          <p>{{index+1}}. {{item.content}}</p>
           <span>{{item.updatetime}}</span>
         </div>
         <div class="more" v-show="!finished" @click="onloadMore">加载更多</div>
@@ -19,12 +19,15 @@
     <div class="modal" v-show="isModal">
       <van-loading color="orange" size="40" vertical>加载中...</van-loading>
     </div>
+    <totop />
   </div>
 </template>
 
 <script>
 import jockApi from "../api/jockApi";
+import totop from "../components/gotop";
 export default {
+  components: { totop },
   data() {
     return {
       list: [],

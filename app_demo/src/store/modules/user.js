@@ -1,8 +1,10 @@
 import storage from "../../utils/localoage";
+const index = storage.getItem("user_index") || 0
 const user = {
     namespaced: true,
     state: {
-        username: storage.getItem('user-demo')[localStorage.getItem('user_index')].username
+        username: storage.getItem("user-demo")[index].username || '',
+
     },
     mutations: {
         // 登录
