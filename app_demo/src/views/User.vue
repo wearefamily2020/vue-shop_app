@@ -2,23 +2,32 @@
   <div class="user">
     <div class="user-info">
       <img src="../assets/image/avatar5.jpg" width="80" height="80" />
-      <p>
+      <p v-if="!username">
         <span @click="toLogin">登录</span> /
         <span @click="toRegister">注册</span>
       </p>
+      <p v-else>
+        <span>{{username}}</span>
+      </p>
     </div>
-    <van-list>
-      <van-cell v-for="item in userlist" :key="item" :title="item" />
+    <van-list v-if="isLogin">
+      <van-cell @click="handleClick(item)" v-for="item in userlist" :key="item" :title="item" />
     </van-list>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapState } from "vuex";
+import moduleName from "../utils/localoage";
 export default {
   data() {
     return {
       userlist: ["个人中心", "退出登录"]
     };
+  },
+  computed: {
+    ...mapState("user", ["username"]),
+    ...mapGetters("user", ["isLogin"])
   },
   methods: {
     toLogin() {
@@ -26,8 +35,15 @@ export default {
     },
     toRegister() {
       this.$router.push({ name: "Register" });
+    },
+    handleClick(val) {
+      if (val == "退出登录") {
+        this.$toast("退出成功");
+        this.$store.commit("user/logout");
+      }
     }
-  }
+  },
+  created() {}
 };
 </script>
 

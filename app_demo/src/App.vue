@@ -7,6 +7,7 @@
         left-arrow
         @click-left="onClickLeft"
         :title="$route.meta.title"
+        :style="{color:'#fff'}"
       />
       <van-nav-bar v-else :title="$route.meta.title" />
     </div>
@@ -37,7 +38,8 @@ export default {
         newVal === "/home/new" ||
         newVal === "/home/random" ||
         newVal === "/login" ||
-        newVal === "/register"
+        newVal === "/register" ||
+        newVal === "/dictionary/detail"
       ) {
         this.isShowBack = true;
       } else {
@@ -47,25 +49,25 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 #app {
   .container {
     width: vw(750);
     height: 100%;
-    background: #9a9a9a1a;
+    // background: #9a9a9a1a;
   }
   .nav {
     .van-nav-bar {
       background: rgb(255, 165, 0);
     }
     .van-nav-bar__text {
-      color: white;
+      color: white !important;
     }
     .van-nav-bar__title {
-      color: white;
+      color: white !important;
     }
     .van-icon-arrow-left::before {
-      color: #fff;
+      color: #fff !important;
     }
   }
 }

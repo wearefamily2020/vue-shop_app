@@ -22,7 +22,8 @@ export default {
         newVal === "/home/random"
       ) {
         this.active = 0;
-      } else if (newVal === "/dictionary") this.active = 1;
+      } else if (newVal === "/dictionary" || newVal === "/dictionary/detail")
+        this.active = 1;
       else if (newVal === "/user") this.active = 2;
     }
   }

@@ -20,15 +20,26 @@
     </div>
     <div class="list">
       <h2>热门</h2>
-      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-        <van-cell v-for="item in list" :key="item" :title="item" />
+      <van-list
+        v-if="list.length!==0"
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
+        <div class="list-item" v-for="item in list" :key="item.hashId">
+          <p style="text-indent:2em">{{item.content}}</p>
+          <span>{{item.updatetime}}</span>
+        </div>
       </van-list>
+      <div v-else style="margin-top:20px">暂无数据</div>
     </div>
   </div>
 </template>
 
 <script>
 import jockApi from "../api/jockApi";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -57,32 +68,40 @@ export default {
           path: "/home/random"
         }
       ],
-      list: [1, 2],
+      list: [],
       loading: false,
       finished: false
     };
   },
+  computed: {
+    ...mapState("user", ["username"])
+  },
   methods: {
     toPage(id) {
-      switch (id) {
-        case 0:
-          this.$router.push({ name: "HotJoke" });
-          break;
-        case 1:
-          this.$router.push({ name: "NewJoke" });
-          break;
-        case 2:
-          this.$router.push({ name: "RandomJoke" });
-          break;
+      if (this.$store.state.user.username) {
+        switch (id) {
+          case 0:
+            this.$router.push({ name: "HotJoke" });
+            break;
+          case 1:
+            this.$router.push({ name: "NewJoke" });
+            break;
+          case 2:
+            this.$router.push({ name: "RandomJoke" });
+            break;
+        }
+      } else {
+        this.$toast("请先登录");
       }
     },
     onLoad() {
       this.loading = false;
-      if (this.list.length >= 2) this.finished = true;
+      if (this.list.length == 0) this.finished = true;
     },
     async getData() {
-      // let res = await jockApi.getJockData();
-      // console.log(res);
+      let res = await jockApi.getTimeJockData();
+      this.list = res.result.data;
+      console.log(this.list);
     }
   },
   created() {
@@ -93,6 +112,9 @@ export default {
 
 <style scoped lang="scss">
 .home {
+  height: 570px;
+  padding-bottom: 40px;
+  overflow: auto;
   .van-swipe {
     height: 208px;
     border: 2px solid orange;
@@ -108,6 +130,15 @@ export default {
   .list {
     margin-top: 10px;
     padding: 0 20px;
+    .list-item {
+      padding: 10px;
+      background: #fff;
+      span {
+        display: block;
+        text-align: right;
+        margin-top: 10px;
+      }
+    }
     h2 {
       height: 40px;
       padding: 0 10px;

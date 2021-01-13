@@ -6,6 +6,7 @@ import HotJoke from '../views/HotJoke'
 import NewJoke from '../views/NewJoke'
 import RandomJoke from '../views/RandomJoke'
 import IdiomDictionary from '../views/IdiomDictionary'
+import Detail from '../views/Detail'
 import Login from '../views/Login'
 import Register from '../views/Register'
 
@@ -42,6 +43,11 @@ const routes = [
     path: '/dictionary',
     name: 'IdiomDictionary',
     component: IdiomDictionary,
+    meta: { title: '成语词典' }
+  }, {
+    path: '/dictionary/detail',
+    name: 'Detail',
+    component: Detail,
     meta: { title: '成语词典' }
   }, {
     path: '/user',
