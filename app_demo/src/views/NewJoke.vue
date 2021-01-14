@@ -80,6 +80,10 @@ export default {
     span {
       display: block;
       text-align: right;
+      color: #5c5c5c;
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 10px;
     }
   }
   .more {
