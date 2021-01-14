@@ -7,6 +7,9 @@ import './assets/base2.css'
 import './lib/mui/dist/css/mui.css'
 import './lib/mui/dist/css/icons-extra.css'
 import 'mint-ui/lib/style.css'
+import { DatetimePicker } from "mint-ui";
+
+Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.use(MintUI)
 Vue.config.productionTip = false;
 
