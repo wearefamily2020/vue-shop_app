@@ -69,5 +69,6 @@ export default {
   height: 100%;
   overflow: hidden;
   position: fixed;
+  top:45px;
 }
 </style>
