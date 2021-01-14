@@ -2,7 +2,11 @@
   <div class="home">
     <div class="swiper">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="item in swiperImg" :key="item.id">
+        <van-swipe-item
+          v-for="(item,index) in swiperImg"
+          :key="item.id"
+          :style="{'margin-left':index==0&&'-19px'}"
+        >
           <img :src="item.img" width="375" height="208" />
         </van-swipe-item>
       </van-swipe>
@@ -109,7 +113,7 @@ export default {
     }
   },
   mounted() {
-    this.getData();
+    // this.getData();
   }
 };
 </script>
@@ -165,6 +169,9 @@ export default {
     border-radius: 50%;
     color: white;
     font-size: 14px;
+  }
+  .marl {
+    margin-left: -18px;
   }
 }
 </style>

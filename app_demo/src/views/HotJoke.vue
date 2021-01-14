@@ -71,8 +71,9 @@ export default {
   width: 100%;
   height: 570px;
   background: #9a9a9a1a;
-  overflow-y: auto;
+  // overflow-y: auto;
   padding-bottom: 20px;
+  margin-top: 40px;
   .list-item {
     padding: 10px;
     background: #fff;
@@ -87,6 +88,7 @@ export default {
     background: #fff;
     line-height: 30px;
     text-align: center;
+    margin-bottom: 70px;
   }
   .modal {
     width: 100%;

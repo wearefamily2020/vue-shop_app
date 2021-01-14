@@ -20,7 +20,6 @@ export default {
       // scrollTop是滚动条滚动时，距离顶部的距离
       var scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
-      console.log(scrollTop >= 200);
       if (scrollTop >= 200) {
         this.isTop = true;
       } else {
