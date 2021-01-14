@@ -47,7 +47,7 @@
           <div class="list-item">
             <div>{{ item.hours + "点" }}</div>
             <p>
-              <span style="color:##f14e41">宜</span>
+              <span style="color:#f14e41">宜</span>
               {{ item.yi ? item.yi : "无"}}
             </p>
             <p>
@@ -72,49 +72,36 @@ export default {
       visible: false,
       // result:[],
       result: [
-        {
-          yangli: "2019-01-01",
-          hours: "1-3",
-          des: ":冲猴 煞北 时冲戊申 不遇 三合 长生 金星",
-          yi: "：赴任 出行 祭祀 祈福 斋醮 开光",
-          ji: " 酬神 求财 见贵 订婚 嫁娶 修造 安葬 青龙"
-        },
-        {
-          yangli: "2019-01-01",
-          hours: "3-5",
-          des: "冲猪 煞东 时冲辛亥 旬空 大退 日禄 天赦",
-          yi: "赴任 出行",
-          ji: " 祈福 求嗣 订婚 嫁娶 求财 开市 交易 安床"
-        },
-        {
-          yangli: "2019-01-01",
-          hours: "5-7",
-          des: "冲狗 煞南 时冲庚戍 日破",
-          yi: "见贵 求财 嫁娶 进人口 安葬 求嗣 订婚",
-          ji: " 赴任 修造 移徙 出行 词讼 祭祀 祈福 斋醮 开光"
-        }
+        // {
+        //   yangli: "2019-01-01",
+        //   hours: "1-3",
+        //   des: ":冲猴 煞北 时冲戊申 不遇 三合 长生 金星",
+        //   yi: "：赴任 出行 祭祀 祈福 斋醮 开光",
+        //   ji: " 酬神 求财 见贵 订婚 嫁娶 修造 安葬 青龙"
+        // },
       ],
       almanacDate: {
-        id: "1657",
-        yangli: "2014-09-11", // 阳历
-        yinli: "甲午(马)年八月十八", // 阴历
-        wuxing: "井泉水 建执位", // 五行
-        chongsha: "冲兔(己卯)煞东", // 冲煞
-        baiji: "乙不栽植千株不长 酉不宴客醉坐颠狂", // 彭祖百济
-        jishen: "官日 六仪 益後 月德合 除神 玉堂 鸣犬", // 吉神宜趋
-        yi: "祭祀 出行 扫舍 馀事勿取", // 宜
-        xiongshen: "月建 小时 土府 月刑 厌对 招摇 五离", // 凶神宜忌
-        ji: "诸事不宜" // 忌
+        // id: "1657",
+        // yangli: "2014-09-11", // 阳历
+        // yinli: "甲午(马)年八月十八", // 阴历
+        // wuxing: "井泉水 建执位", // 五行
+        // chongsha: "冲兔(己卯)煞东", // 冲煞
+        // baiji: "乙不栽植千株不长 酉不宴客醉坐颠狂", // 彭祖百济
+        // jishen: "官日 六仪 益後 月德合 除神 玉堂 鸣犬", // 吉神宜趋
+        // yi: "祭祀 出行 扫舍 馀事勿取", // 宜
+        // xiongshen: "月建 小时 土府 月刑 厌对 招摇 五离", // 凶神宜忌
+        // ji: "诸事不宜" // 忌
       }
     };
   },
-  created() {
+  created() {},
+  mounted() {
     this.getdata();
   },
   methods: {
     handleConfirm() {
-      this.pickerValue = this.timestampToTime();
-      console.log(this.pickerValue);
+      // this.pickerValue = this.timestampToTime();
+      // console.log(this.pickerValue);
       this.getdata();
     },
     timestampToTime() {
@@ -132,18 +119,17 @@ export default {
       this.$indicator.open({
         text: "加载中"
       });
-      await almanacApi.getDate(this.pickerValue).then(res => {
+      await almanacApi.getDate(this.timestampToTime()).then(res => {
         if (res.error_code === 0) {
           this.almanacDate = res.result;
-          console.log(this.almanacDate);
+          // console.log(this.almanacDate);
         }
       });
       this.$indicator.close();
-      await almanacApi.getTime(this.pickerValue).then(res => {
-        console.log("11111", res);
+      await almanacApi.getTime(this.timestampToTime()).then(res => {
+        // console.log("11111", res);
         if (res.error_code === 0) {
           this.result = res.result;
-          console.log(this.result);
         }
       });
     },
@@ -206,7 +192,7 @@ export default {
     padding: 15px 0;
     background: #9a9a9a1a;
     border-radius: 30px;
-    height: 205px;
+    height: 80%;
   }
   & footer {
     padding: 30px 0 60px;
@@ -254,6 +240,7 @@ export default {
         line-height: 25px;
         height: 25px;
         display: inline-block;
+        font-weight: 600;
       }
     }
   }

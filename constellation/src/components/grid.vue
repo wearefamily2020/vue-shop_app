@@ -100,7 +100,7 @@ export default {
   margin: 4px 13px 0 0;
   padding-left: 13px;
   width: 100%;
-  height: 728px;
+  height: 960px;
   background: #9a9a9a1a;
 }
 .grid-item {
