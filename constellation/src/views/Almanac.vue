@@ -47,7 +47,7 @@
           <div class="list-item">
             <div>{{ item.hours + "点" }}</div>
             <p>
-              <span>宜</span>
+              <span style="color:##f14e41">宜</span>
               {{ item.yi ? item.yi : "无"}}
             </p>
             <p>
