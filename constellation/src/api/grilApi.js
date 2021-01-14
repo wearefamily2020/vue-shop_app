@@ -1,5 +1,5 @@
 import request from '../utils/request'
-const key = "ee14e85babbc356324965e633cf7a923"
+const key = "3ee3f17b61c2705d275296b3b8b08dd8"
 
 export default {
     getDate(date) {

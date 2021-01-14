@@ -18,8 +18,6 @@ export default {
 #app {
   width: vw(750);
     height: 100%;
-
-  background: #333333;
 }
 .mint-header {
   background: #9966ff;

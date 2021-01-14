@@ -1,6 +1,4 @@
 import axios from 'axios'
-const constellationKey = "3ee3f17b61c2705d275296b3b8b08dd8"
-
 const request = axios.create({
     // 根据不同环境设置 baseURL, 最终发送请求时的URL为: baseURL + 发送请求时写URL ,
     baseURL: '/',
