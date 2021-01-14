@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Almanac from "../views/Almanac.vue";
+import AlmanacChild from "../views/AlmanacChlid.vue";
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,13 @@ const routes = [{
   component: Almanac,
   meta: {
     title: '黄历'
+  }
+}, {
+  path: "/home/child",
+  name: "child",
+  component: AlmanacChild,
+  meta: {
+    title: '星座运势'
   }
 }
 ];

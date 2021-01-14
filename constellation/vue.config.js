@@ -11,6 +11,13 @@ module.exports = {
                 pathRewrite: {
                     '^/almanac-api': ''
                 }
+            },
+            '/gril-api': {
+                target: "http://web.juhe.cn:8080", // 目标服务器 
+                changeOrigin: true, // 开启代理 
+                pathRewrite: {
+                    '^/gril-api': ''
+                }
             }
         }
     },

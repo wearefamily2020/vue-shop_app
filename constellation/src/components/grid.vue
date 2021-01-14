@@ -81,7 +81,13 @@ export default {
 
   methods: {
     tolink(link) {
-      console.log(link);
+      this.$router.push({
+          path:"/home/child",
+          name:"child",
+          params:{
+              consName:link,
+              type:'today'
+          }});
     },
   },
 };
