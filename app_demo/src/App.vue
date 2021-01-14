@@ -8,6 +8,7 @@
         @click-left="onClickLeft"
         :title="$route.meta.title"
         :style="{color:'#fff'}"
+        :fixed="true"
       />
       <van-nav-bar v-else :title="$route.meta.title" />
     </div>

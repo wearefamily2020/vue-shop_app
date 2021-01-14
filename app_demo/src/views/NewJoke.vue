@@ -35,7 +35,7 @@ export default {
       finished: false,
       page: 1,
       pageSize: 10,
-      isModal: false,
+      isModal: false
     };
   },
   methods: {
@@ -58,11 +58,11 @@ export default {
         this.$toast("请求失败");
       }
       this.isModal = false;
-    },
+    }
   },
   mounted() {
     this.getData();
-  },
+  }
 };
 </script>
 
@@ -71,14 +71,19 @@ export default {
   width: 100%;
   height: 570px;
   background: #9a9a9a1a;
-  overflow-y: auto;
+  // overflow-y: auto;
   padding-bottom: 20px;
+  margin-top: 40px;
   .list-item {
     padding: 10px;
     background: #fff;
     span {
       display: block;
       text-align: right;
+      color: #5c5c5c;
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 10px;
     }
   }
   .more {

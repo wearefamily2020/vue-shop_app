@@ -29,5 +29,10 @@ export default {
   }
 };
 </script>
+<style>
+.van-tabbar--fixed {
+  left: 0;
+}
+</style>
 
 
