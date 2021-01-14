@@ -29,19 +29,17 @@
     <footer>
       <nav>良辰吉时</nav>
       <div v-for="item in result" :key="item.hours">
-        <div style="text-align: initial; font-weight: 600; color: aqua">
+        <div style="text-align: initial; font-weight: 600">
           {{ item.hours + "点" }}
         </div>
-        <div style="display: inline;color: #000">
-          <span style="color: red; float: left">宜</span>:{{
-            item.yi ? item.yi : "无"
-          }}
+        <div style="display: inline; color: #000">
+          <span style="color: red; float: left">宜:</span
+          >{{ item.yi ? item.yi : "无" }}
         </div>
         <br />
-        <div style="display: inline;color: #000">
-          <span style="font-weight: 600;color: #000; float: left">忌</span>:{{
-            item.ji ? item.ji : "无"
-          }}
+        <div style="display: inline; color: #000">
+          <span style="font-weight: 600; color: #000; float: left">忌:</span
+          >{{ item.ji ? item.ji : "无" }}
         </div>
       </div>
     </footer>
@@ -171,19 +169,19 @@ export default {
       let D = date.getDate();
       return Y + M + D;
     },
-   async getdata() {
+    async getdata() {
       this.$indicator.open({
         text: "加载中",
       });
-     await almanacApi.getDate(this.timestampToTime()).then((res) => {
+      await almanacApi.getDate(this.timestampToTime()).then((res) => {
         if (res.error_code === 0) {
           this.almanacDate = res.result;
           console.log(this.almanacDate);
         }
       });
-       this.$indicator.close();
-    await almanacApi.getTime(this.timestampToTime()).then((res) => {
-       console.log("11111", res);
+      this.$indicator.close();
+      await almanacApi.getTime(this.timestampToTime()).then((res) => {
+        console.log("11111", res);
         if (res.error_code === 0) {
           this.result = res.result;
           console.log(this.result);
@@ -234,7 +232,7 @@ export default {
     height: 180px;
   }
   & footer {
-        padding: 50px 21px 60px;
+    padding: 50px 21px 60px;
     & nav {
       font-weight: 600;
       height: 60px;
