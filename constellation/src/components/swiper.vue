@@ -2,15 +2,18 @@
   <mt-swipe :auto="3000">
     <!-- <mt-swipe-item v-for="item in imgList" :key="item.id">
       <img :src="item.img">
-    </mt-swipe-item> -->
-    <mt-swipe-item>1</mt-swipe-item>
-    <mt-swipe-item>2</mt-swipe-item>
-    <mt-swipe-item>3</mt-swipe-item>
+    </mt-swipe-item>-->
+    <mt-swipe-item>
+      <img src="../assets/1.jpg" />
+    </mt-swipe-item>
+    <mt-swipe-item>
+      <img src="../assets/3.jpg" />
+    </mt-swipe-item>
   </mt-swipe>
 </template>
 <script>
 export default {
-  props: ["imgList"],
+  props: ["imgList"]
 };
 </script>
 <style lang="scss" scoped>
